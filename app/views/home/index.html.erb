@@ -1,0 +1,7 @@
+<h1>Recipe app</h1>
+
+<% if current_user %>
+  <h2>Hello, <%= current_user.name %></h2>
+<% end %>
+
+<%= render 'shared/menu' %>
