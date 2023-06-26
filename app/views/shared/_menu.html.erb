@@ -5,6 +5,7 @@
   <% end %>
   <% if current_user %>
     <%= link_to 'Foods', foods_path %>
+    <%= link_to 'Recipes', recipes_path %>
     <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
   <% end %>
 </div>

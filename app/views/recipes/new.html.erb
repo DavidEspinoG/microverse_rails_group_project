@@ -1,0 +1,17 @@
+<h2>Add new recipe</h2>
+
+<%= form_with url: recipes_path do |form|%>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :preparation_time %>
+  <%= form.text_field :preparation_time %>
+  <%= form.label :cooking_time %>
+  <%= form.text_field :cooking_time %>
+  <%= form.label :description %>
+  <%= form.text_field :description %>
+  <%= form.radio_button :public, 'true' %>
+  <%= form.label :public_true, 'public' %>
+  <%= form.radio_button :public, 'false' %>
+  <%= form.label :public_false, 'private' %>
+  <%= form.submit %>
+<% end %>
