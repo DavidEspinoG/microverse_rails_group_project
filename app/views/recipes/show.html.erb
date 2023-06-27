@@ -15,11 +15,22 @@
   <% if @recipe.user == current_user %>
     <%= link_to 'Add ingredient', new_ingredient_path(@recipe) %>
     <h3>Ingredients</h3>
-    <ul>
+    <table>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Actions</th>
+      </tr>
       <% @recipe.foods.each do |food|%>
-        <li><%= food.name %></li>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.quantity %></td>
+          <td><%= food.price %></td>
+          <td>Actions</td>
+        </tr>
       <% end %>
-    </ul>
+    </table>
     
   <% end %>
 
