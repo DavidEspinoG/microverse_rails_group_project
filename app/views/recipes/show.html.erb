@@ -1,0 +1,38 @@
+<%= render partial: 'shared/menu' %>
+
+<h2>Details for: <%= @recipe.name %></h2>
+
+<div class="recipe_details_container">
+  <p>Preparation time: <%= @recipe.preparation_time %></p>
+  <p>Cooking time: <%= @recipe.cooking_time %></p>
+  <p>Steps: </p>
+  <% if @recipe.user == current_user || @recipe.public %>
+    <p><%= @recipe.description %></p>
+    <%= button_to @recipe.public ? 'Make private' : 'Make public', recipe_path(@recipe), method: :patch %>
+  <% else %>x
+    <p>This recipe is private</p>
+  <% end %>
+  <% if @recipe.user == current_user %>
+    <%= link_to 'Add ingredient', new_ingredient_path(@recipe) %>
+    <h3>Ingredients</h3>
+    <table>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Actions</th>
+      </tr>
+      <% @recipe.foods.each do |food|%>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.quantity %></td>
+          <td><%= food.price %></td>
+          <td>Actions</td>
+        </tr>
+      <% end %>
+    </table>
+    
+  <% end %>
+
+  
+</div>
