@@ -1,6 +1,19 @@
+<%= render 'shared/menu' %>
 <h2>Recipes list for <%= current_user.name %></h2>
 
 <div class="recipes-container">
- 
+  <% @recipes.each do |recipe|%>
+    <%= render partial: 'recipe', 
+        locals: {
+          name: recipe.name, 
+          description: recipe.description,
+          preparation_time: recipe.preparation_time,
+          recipe: recipe, 
+          user: recipe.user
+        }
+    %>
+  <% end %>
 </div>
-<%= render 'shared/menu' %>
+<div class="navigation">
+  <%= link_to 'Add a recipe', new_recipe_path %>
+</div>
