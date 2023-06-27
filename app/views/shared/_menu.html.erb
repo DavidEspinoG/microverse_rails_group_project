@@ -1,5 +1,6 @@
 <div class="navigation">
   <% unless current_user %>
+    <%= link_to 'Public recipe', public_recipes_path%>
     <%= link_to 'Log in', new_user_session_path %>
     <%= link_to 'Sign up', new_user_registration_path %>
   <% end %>
