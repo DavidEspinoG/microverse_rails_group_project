@@ -7,7 +7,8 @@ class IngredientsController < ApplicationController
 
   def create
     @food = Food.new(name: params[:name], 
-      quantity: params[:quantity], user: current_user)
+      quantity: params[:quantity], 
+      user: current_user, price: params[:price])
     @recipe = Recipe.find(params[:recipe_id])
     if @food.save
       @recipe.foods.push(@food)
