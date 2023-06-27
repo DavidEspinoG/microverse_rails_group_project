@@ -6,13 +6,13 @@ class IngredientsController < ApplicationController
   end
 
   def create
-    @food = Food.new(name: params[:name], 
-      quantity: params[:quantity], 
-      user: current_user, price: params[:price])
+    @food = Food.new(name: params[:name],
+                     quantity: params[:quantity],
+                     user: current_user, price: params[:price])
     @recipe = Recipe.find(params[:recipe_id])
-    if @food.save
-      @recipe.foods.push(@food)
-      redirect_to recipe_path(@recipe)
-    end
+    return unless @food.save
+
+    @recipe.foods.push(@food)
+    redirect_to recipe_path(@recipe)
   end
 end
