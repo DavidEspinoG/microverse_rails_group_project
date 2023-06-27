@@ -25,5 +25,4 @@ class RecipesController < ApplicationController
     @recipe.destroy
     redirect_to '/recipes'
   end
-
 end
