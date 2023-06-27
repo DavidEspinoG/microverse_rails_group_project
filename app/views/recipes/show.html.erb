@@ -13,7 +13,7 @@
     <p>This recipe is private</p>
   <% end %>
   <% if @recipe.user == current_user %>
-    <%= render partial: 'foods/form' %>
+    <%= link_to 'Add ingredient', new_ingredient_path(@recipe) %>
   <% end %>
 
   
