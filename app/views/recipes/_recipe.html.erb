@@ -1,0 +1,11 @@
+<div class="recipe">
+  <h3>Name: <%= name %></h3>
+  <p>Description: <%= description %></p> 
+  <p>Preparation time: <%= preparation_time %></p>
+  <%= link_to 'Recipe details', recipe_path(recipe) %>
+  <% if user == current_user %>
+    <%= link_to 'Delete recipe', recipe_path(recipe), 
+      data: {"turbo_method": :delete, "turbo_confirm": 'Are you sure?'} 
+    %>  
+  <% end %>
+</div> 
