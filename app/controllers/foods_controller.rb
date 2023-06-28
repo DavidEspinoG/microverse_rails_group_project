@@ -12,7 +12,7 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.new(name: params[:name], quantity: params[:quantity],
-                    user: current_user)
+                     user: current_user)
 
     if @food.save
       redirect_to foods_path, notice: 'Food added successfully.'
@@ -37,8 +37,6 @@ class FoodsController < ApplicationController
     @food.destroy
     redirect_back(fallback_location: root_path)
   end
-
-  private
 
   # def food_params
   #   params.require(:food).permit(:name, :quantity)
