@@ -11,7 +11,8 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = current_user.foods.build(food_params)
+    @food = Food.new(name: params[:name], quantity: params[:quantity],
+                     user: current_user)
 
     if @food.save
       redirect_to foods_path, notice: 'Food added successfully.'
@@ -20,9 +21,24 @@ class FoodsController < ApplicationController
     end
   end
 
-  private
-
-  def food_params
-    params.require(:food).permit(:name, :quantity)
+  def edit
+    @food = Food.find(params[:id])
   end
+
+  def update
+    @food = Food.find(params[:id])
+    @food.update(name: params[:name], quantity: params[:quantity],
+                 price: params[:price])
+    redirect_to recipe_path(@food.recipes.first)
+  end
+
+  def destroy
+    @food = Food.find(params[:id])
+    @food.destroy
+    redirect_back(fallback_location: root_path)
+  end
+
+  # def food_params
+  #   params.require(:food).permit(:name, :quantity)
+  # end
 end

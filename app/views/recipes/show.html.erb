@@ -27,7 +27,9 @@
           <td><%= food.name %></td>
           <td><%= food.quantity %></td>
           <td><%= food.price %></td>
-          <td>Actions</td>
+          <td><%= link_to 'Edit' , edit_food_path(food) %>
+            <%= link_to 'Delete' , food_path(food), data: {"turbo_method": :delete} %>
+          </td>
         </tr>
       <% end %>
     </table>
