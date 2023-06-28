@@ -1,3 +1,5 @@
+<%= render partial: 'shared/menu' %>
+
 <h2>Add New Food</h2>
 
 <%= form_with(model: @food, url: foods_path, local: true) do |form| %>
@@ -9,3 +11,4 @@
 
   <%= form.submit "Add Food" %>
 <% end %>
+<%= link_to 'Home', root_path %>
