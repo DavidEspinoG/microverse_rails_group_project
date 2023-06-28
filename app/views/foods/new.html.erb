@@ -1,13 +1,16 @@
 <%= render partial: 'shared/menu' %>
 
-<h2>Add New Food</h2>
+<h2>Add New Food To <%= current_user.name %></h2>
 
-<%= form_with(model: @food, url: foods_path, local: true) do |form| %>
+<%= form_with url: foods_path, method: :post do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>
 
   <%= form.label :quantity %>
   <%= form.number_field :quantity %>
+
+  <%= form.label :price %>
+  <%= form.number_field :price%>
 
   <%= form.submit "Add Food" %>
 <% end %>
