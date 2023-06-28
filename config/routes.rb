@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get 'ingredients/new/:recipe_id', to: 'ingredients#new', as: 'new_ingredient'
   post 'ingredients/new/:recipe_id', to: 'ingredients#create', as: 'create_ingredient'
   resources :public_recipes, only: [:index]
+  resources :general_shopping_list
 end
