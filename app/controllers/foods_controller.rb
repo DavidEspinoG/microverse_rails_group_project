@@ -28,7 +28,7 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
     @food.update(name: params[:name], quantity: params[:quantity],
                  price: params[:price])
-    redirect_back(fallback_location: root_path)
+    redirect_to recipes_path
   end
 
   def destroy
