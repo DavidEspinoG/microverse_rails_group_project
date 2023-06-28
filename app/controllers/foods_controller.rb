@@ -11,7 +11,8 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = current_user.foods.build(food_params)
+    @food = Food.new(name: params[:name], quantity: params[:quantity],
+                    user: current_user)
 
     if @food.save
       redirect_to foods_path, notice: 'Food added successfully.'
@@ -27,7 +28,7 @@ class FoodsController < ApplicationController
   def update
     @food = Food.find(params[:id])
     @food.update(name: params[:name], quantity: params[:quantity],
-                 price: params[:price])
+                 price: params[:price], price: params[:price])
     redirect_to recipes_path
   end
 
@@ -39,7 +40,7 @@ class FoodsController < ApplicationController
 
   private
 
-  def food_params
-    params.require(:food).permit(:name, :quantity)
-  end
+  # def food_params
+  #   params.require(:food).permit(:name, :quantity)
+  # end
 end
