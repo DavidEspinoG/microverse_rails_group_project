@@ -1,5 +1,11 @@
 
 <h2>Shopping List</h2>
+
+<div>
+  <p>Amount of food items missing: <%= @missing_foods.count %></p>
+  <p> Price of food missing: <%= number_to_currency(@total_cost)  %></p>
+</div>
+
 <table>
   <thead>
     <tr>
@@ -9,12 +15,12 @@
     </tr>
   </thead>
   <tbody>
-    <% @ingredients.each do |food| %>
-      <tr>
-        <td><%= food.name %></td>
-        <td><%= food.quantity %></td>
-        <td><%= food.price %></td>
-      </tr>
+    <% @missing_foods.flatten.each do |food|%>
+        <tr>
+            <td><%= food.name %></td>
+            <td><%= food.quantity %></td>
+            <td><%= food.price %></td>
+        </tr>
     <% end %>
   </tbody>
 </table>
