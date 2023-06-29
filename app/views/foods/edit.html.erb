@@ -1,11 +1,22 @@
-<h2>Edit food<h2> 
+<%= render partial: 'shared/menu' %>
 
-<%= form_with url: food_path(@food), method: :patch do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name, value: @food.name %>
-  <%= form.label :quantity %>
-  <%= form.text_field :quantity, value: @food.quantity %>
-  <%= form.label :price %>
-  <%= form.number_field :price, value: @food.price %>
-  <%= form.submit %>
-<% end %>
+<div class="container" style="max-width: 500px;">
+  <h2>Edit food<h2> 
+  <%= form_with url: food_path(@food), method: :patch do |form| %>
+    <div class="mb-3">
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, value: @food.name, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :quantity, class: 'form-label' %>
+      <%= form.text_field :quantity, value: @food.quantity, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :price, class: 'form-label' %>
+      <%= form.number_field :price, value: @food.price, class: 'form-control' %>
+    </div>
+    
+    
+    <%= form.submit class: 'btn btn-primary' %>
+  <% end %>
+</div>

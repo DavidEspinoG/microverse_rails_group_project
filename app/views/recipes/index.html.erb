@@ -1,7 +1,7 @@
 <%= render 'shared/menu' %>
-<h2>Recipes list for <%= current_user.name %></h2>
+<h2 class="text-center">Recipes list for <%= current_user.name %></h2>
 
-<div class="recipes-container">
+<div class="container d-flex flex-column gap-3 mb-3">
   <% @recipes.each do |recipe|%>
     <%= render partial: 'recipe', 
         locals: {
@@ -14,6 +14,6 @@
     %>
   <% end %>
 </div>
-<div class="navigation">
-  <%= link_to 'Add a recipe', new_recipe_path %>
+<div class="d-flex justify-content-center">
+  <%= link_to 'Add a recipe', new_recipe_path, class: 'btn btn-primary' %>
 </div>

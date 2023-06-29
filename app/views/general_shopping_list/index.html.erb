@@ -1,26 +1,29 @@
+<%= render partial: 'shared/menu'%>
 
+<div class="container">
 <h2>Shopping List</h2>
+  <div>
+    <p>Amount of food items missing: <%= @missing_foods.count %></p>
+    <p> Price of food missing: <%= number_to_currency(@total_cost)  %></p>
+  </div>
 
-<div>
-  <p>Amount of food items missing: <%= @missing_foods.count %></p>
-  <p> Price of food missing: <%= number_to_currency(@total_cost)  %></p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Food Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @missing_foods.flatten.each do |food|%>
+          <tr>
+              <td><%= food.name %></td>
+              <td><%= food.quantity %></td>
+              <td><%= food.price %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+
 </div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Food Name</th>
-      <th>Quantity</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @missing_foods.flatten.each do |food|%>
-        <tr>
-            <td><%= food.name %></td>
-            <td><%= food.quantity %></td>
-            <td><%= food.price %></td>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
