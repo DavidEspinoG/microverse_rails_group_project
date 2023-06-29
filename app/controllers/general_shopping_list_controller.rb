@@ -8,13 +8,16 @@ class GeneralShoppingListController < ApplicationController
     @total_cost = 0
 
     @recipes.each do |recipe|
-      missing_foods = recipe.foods - @general_food
+      missing_foods = recipe.foods.reject { |food| @general_food.any? { |general_food| general_food.name == food.name } }
       @missing_foods.concat(missing_foods)
     end
 
     @missing_foods.flatten.each do |food|
-      total = food.quantity * food.price
-      @total_cost += total
+      if food.quantity && food.price
+        total = food.quantity * food.price
+        @total_cost += total
+      end
     end
+    
   end
 end
