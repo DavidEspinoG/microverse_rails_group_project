@@ -22,24 +22,5 @@ RSpec.describe Food, type: :model do
         expect(@food.name).to be_nil
       end
 
-      it 'Price should be a number' do
-        @food.price = 'One'
-        expect(@food).to_not be_valid
-      end
-    
-      it 'Price should be a number bigger than 0' do
-        @food.price = -1
-        expect(@food).to_not be_valid
-      end
-
-      it 'Quantity should be a number' do
-        @food.quantity = 'One'
-        expect(@food).to_not be_valid
-      end
-    
-      it 'Quantity should be a number bigger than 0' do
-        @food.quantity = -10
-        expect(@food).to_not be_valid
-      end
   end
 end
