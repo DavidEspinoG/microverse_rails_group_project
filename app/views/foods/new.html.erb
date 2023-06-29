@@ -1,14 +1,24 @@
-<h2>Add New Food To <%= current_user.name %></h2>
+<%= render partial: 'shared/menu' %>
 
-<%= form_with url: foods_path, method: :post do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
+<div class="container" style="max-width: 500px;">
+  <h2 class="text-center">Add New Food To <%= current_user.name %></h2>
 
-  <%= form.label :quantity %>
-  <%= form.number_field :quantity %>
+  <%= form_with url: foods_path, method: :post do |form| %>
+    <div class="mb-3">
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :quantity, class: 'form-label' %>
+      <%= form.number_field :quantity, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :price, class: 'form-label' %>
+      <%= form.number_field :price, class: 'form-control'%>
+    </div>
+    
+    <%= form.submit "Add Food", class: 'btn btn-primary' %>
+  <% end %>
 
-  <%= form.label :price %>
-  <%= form.number_field :price%>
+</div>
 
-  <%= form.submit "Add Food" %>
-<% end %>

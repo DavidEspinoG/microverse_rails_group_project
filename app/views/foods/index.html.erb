@@ -1,7 +1,10 @@
-<%= link_to 'Add Food', new_food_path %>
+<%= render partial: 'shared/menu' %>
 
-<h1>Food list for <%= current_user.name %></h1>
+<div class="container">
+  <h1>Food list for <%= current_user.name %></h1>
+  <% @foods.each do |food| %>
+    <p> <%= food.name %> (Quantity <%= food.quantity %>) </p>
+  <% end %>
+  <%= link_to 'Add Food', new_food_path, class: 'btn btn-primary' %>
+</div>
 
-<% @foods.each do |food| %>
-  <p> <%= food.name %> (Quantity <%= food.quantity %>) </p>
-<% end %>
