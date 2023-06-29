@@ -1,8 +1,7 @@
 <%= render 'shared/menu' %>
 
-
 <% if current_user %>
-  <h2 class="display-6 text-dark">Hello, <%= current_user.name %></h2>
+  <h2 class="display-6 text-dark text-center">Hello, <%= current_user.name %></h2>
 <% end %>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>

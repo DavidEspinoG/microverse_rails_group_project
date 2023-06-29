@@ -1,11 +1,15 @@
-<div class="recipe">
-  <h3>Name: <%= name %></h3>
-  <p>Description: <%= description %></p> 
-  <p>Preparation time: <%= preparation_time %></p>
-  <%= link_to 'Recipe details', recipe_path(recipe) %>
-  <% if user == current_user %>
-    <%= link_to 'Delete recipe', recipe_path(recipe), 
-      data: {"turbo_method": :delete, "turbo_confirm": 'Are you sure?'} 
-    %>  
-  <% end %>
+<div class="card">
+  <div class="card-body">
+    <h3 class="card-title"><%= name %></h3>
+    <p class="card-subtitle mb-2 text-body-secondary">Description: <%= description %></p> 
+    <p class="card-text">Preparation time: <%= preparation_time %></p>
+    <%= link_to 'Recipe details', recipe_path(recipe), class: 'btn btn-primary'  %>
+    <% if user == current_user %>
+      <%= link_to 'Delete recipe', recipe_path(recipe), 
+        data: {"turbo_method": :delete, "turbo_confirm": 'Are you sure?'},
+        class: 'btn btn-primary' 
+      %>  
+    <% end %>
+  </div>
+  
 </div> 
