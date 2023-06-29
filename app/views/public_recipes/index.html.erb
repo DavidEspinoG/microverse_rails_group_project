@@ -1,3 +1,4 @@
+<%= render partial: 'shared/menu' %>
 <section>
   <h2>public recipes </h2>
   <% @public_recipe.each do |recipe| %>
@@ -14,3 +15,4 @@
     <% end %>
   <% end %>
 </section>
+<%= link_to 'Home', root_path %>

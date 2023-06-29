@@ -1,3 +1,5 @@
+<%= render partial: 'shared/menu' %>
+
 <h2>Add New Food To <%= current_user.name %></h2>
 
 <%= form_with url: foods_path, method: :post do |form| %>
@@ -12,3 +14,4 @@
 
   <%= form.submit "Add Food" %>
 <% end %>
+<%= link_to 'Home', root_path %>

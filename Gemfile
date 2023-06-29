@@ -54,7 +54,9 @@ group :development, :test do
 
   gem 'capybara', '~> 3.39', '>= 3.39.2'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 6.0', '>= 6.0.3'
+  gem 'selenium-webdriver', '~> 4.10'
 end
 
 group :development do
