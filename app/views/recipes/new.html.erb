@@ -1,17 +1,33 @@
-<h2>Add new recipe</h2>
+<%= render partial: 'shared/menu' %>
 
-<%= form_with url: recipes_path do |form|%>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-  <%= form.label :preparation_time %>
-  <%= form.text_field :preparation_time %>
-  <%= form.label :cooking_time %>
-  <%= form.text_field :cooking_time %>
-  <%= form.label :description %>
-  <%= form.text_field :description %>
-  <%= form.radio_button :public, 'true' %>
-  <%= form.label :public_true, 'public' %>
-  <%= form.radio_button :public, 'false' %>
-  <%= form.label :public_false, 'private' %>
-  <%= form.submit %>
-<% end %>
+<div class="container">
+  <h2 class="text-center">Add new recipe</h2>
+  <%= form_with url: recipes_path do |form|%>
+    <div class="mb-3">
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :preparation_time, class: 'form-label' %>
+      <%= form.text_field :preparation_time, class: 'form-control'  %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :cooking_time, class: 'form-label' %>
+      <%= form.text_field :cooking_time, class: 'form-control'  %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :description, class: 'form-label' %>
+      <%= form.text_field :description, class: 'form-control'  %>
+    </div>
+    <div class="form-check">
+      <%= form.radio_button :public, 'true', class: 'form-check-input' %>
+      <%= form.label :public_true, 'public', class: 'form-check-label' %>
+    </div>
+    <div class="form-check">
+      <%= form.radio_button :public, 'false', class: 'form-check-input' %>
+      <%= form.label :public_false, 'private', class: 'form-check-label' %>
+    </div>
+    <%= form.submit class: 'btn btn-primary' %>
+  <% end %> 
+</div>
+
