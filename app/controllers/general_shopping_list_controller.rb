@@ -1,7 +1,7 @@
 class GeneralShoppingListController < ApplicationController
   def index
     @user = current_user
-    @recipes = @user.recipes
+    @recipes = @user.recipes.includes(:foods)
     @general_food = @user.foods
 
     @missing_foods = []
