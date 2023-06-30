@@ -1,0 +1,19 @@
+<%= render 'shared/menu' %>
+<h2 class="text-center">Recipes list for <%= current_user.name %></h2>
+
+<div class="container d-flex flex-column gap-3 mb-3">
+  <% @recipes.each do |recipe|%>
+    <%= render partial: 'recipe', 
+        locals: {
+          name: recipe.name, 
+          description: recipe.description,
+          preparation_time: recipe.preparation_time,
+          recipe: recipe, 
+          user: recipe.user
+        }
+    %>
+  <% end %>
+</div>
+<div class="d-flex justify-content-center">
+  <%= link_to 'Add a recipe', new_recipe_path, class: 'btn btn-primary' %>
+</div>
