@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: microverse_rails_group_project_production
-  username: microverse_rails_group_project
+  database: group_rails_capstone
+  username: group_rails_capstone_user
   password: <%= ENV["MICROVERSE_RAILS_GROUP_PROJECT_DATABASE_PASSWORD"] %>
